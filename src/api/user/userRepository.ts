@@ -1,16 +1,11 @@
-import { User } from '@/api/user/userModel';
-
-export const users: User[] = [
-  { id: 1, name: 'Alice', email: 'alice@example.com', age: 42, createdAt: new Date(), updatedAt: new Date() },
-  { id: 2, name: 'Bob', email: 'bob@example.com', age: 21, createdAt: new Date(), updatedAt: new Date() },
-];
+import UserModel, { IUser } from '../../models/user.model';
 
 export const userRepository = {
-  findAllAsync: async (): Promise<User[]> => {
-    return users;
+  findAllAsync: async (): Promise<IUser[]> => {
+    return UserModel.find();
   },
 
-  findByIdAsync: async (id: number): Promise<User | null> => {
-    return users.find((user) => user.id === id) || null;
+  findByIdAsync: async (id: number): Promise<IUser | null> => {
+    return UserModel.findById(id);
   },
 };
