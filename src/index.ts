@@ -10,7 +10,7 @@ const server = app.listen(env.PORT, () => {
 });
 
 runMongoDB();
-startBot();
+//startBot();
 
 const onCloseSignal = () => {
   logger.info('sigint received, shutting down');

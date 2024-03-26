@@ -241,12 +241,8 @@ export class ArbBot {
     let coin: ICoin | null = await CoinModel.findOne({ ca: outputToken });
 
     if (coin) {
-      // Parse outAmount to a number
       const parsedOutAmount = parseFloat(outAmount);
-
       coin.amount += parsedOutAmount;
-
-      // Save the updated coin document
       await coin.save();
     }
 
@@ -256,6 +252,7 @@ export class ArbBot {
         ca: outputToken,
         name: token?.name,
         image: token?.logo,
+        user: '6601e3aa89ba1f3fcb27da31',
         description: token?.description,
         symbol: token?.symbol,
         amount: outAmount,

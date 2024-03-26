@@ -11,6 +11,13 @@ export interface ICoin extends Document {
   transactions: ITransaction['_id'][];
   image: string;
   amount: number;
+  symbol: string;
+  priceStats?: {
+    price: number;
+    priceChange: number;
+    marketcap: number;
+    volume: number;
+  };
 }
 
 // Define schema for the coin model

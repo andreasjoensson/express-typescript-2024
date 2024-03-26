@@ -12,6 +12,7 @@ import requestLogger from '@/common/middleware/requestLogger';
 
 import { authRouter } from './api/auth/auth.router';
 import { transactionsRouter } from './api/transactions/transaction.router';
+import { dashboardRouter } from './api/dashboard/dashboard.router';
 
 const logger = pino({ name: 'server start' });
 const app: Express = express();
@@ -34,6 +35,7 @@ app.use('/health-check', healthCheckRouter);
 app.use('/users', userRouter);
 app.use('/auth', authRouter); // Auth routes are the same as user routes
 app.use('/transactions', transactionsRouter);
+app.use('/dashboard', dashboardRouter); // Dashboard routes are the same as transactions routes
 
 // Swagger UI
 app.use(openAPIRouter);
