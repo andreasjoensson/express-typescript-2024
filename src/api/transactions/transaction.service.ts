@@ -12,5 +12,5 @@ export async function getAllTransactions(): Promise<ITransaction[]> {
 }
 
 export async function getTransactionsByUserId(userId: string): Promise<ITransaction[]> {
-  return TransactionModel.find({ user: userId });
+  return TransactionModel.find({ user: userId }).populate('coin');
 }
